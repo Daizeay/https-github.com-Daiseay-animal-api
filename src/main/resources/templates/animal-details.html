@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Animal Details</title>
+</head>
+<body>
+<h1 th:text="${animal.name}">Animal Name</h1>
+<p>ID: <span th:text="${animal.animalId}"></span></p> <!-- Updated here -->
+<p>Species: <span th:text="${animal.species}"></span></p>
+<a href="/api/animals/all">Back to List</a>
+</body>
+</html>

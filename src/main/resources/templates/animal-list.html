@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Animal List</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        h1 { color: #2c3e50; }
+        a { text-decoration: none; color: #2980b9; }
+        a:hover { text-decoration: underline; }
+        .animal { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+<h1>Animal List</h1>
+
+<!-- Link to create a new animal -->
+<a href="/api/animals/new">Create New Animal</a>
+<br><br>
+
+<div data-th-each="animal : ${animals}" class="animal">
+    <h2 data-th-text="${animal.name}"></h2>
+    <p>ID: <span data-th-text="${animal.animalId}"></span></p>
+    <p>Species: <span data-th-text="${animal.species}"></span></p>
+
+    <!-- Link to view animal details -->
+    <a th:href="@{/api/animals/{id}(id=${animal.animalId})}">View Details</a>
+    <!-- Link to edit animal -->
+    <a th:href="@{/api/animals/update/{id}(id=${animal.animalId})}">Edit</a>
+
+    <hr />
+</div>
+
+<!-- Back to Animal List link -->
+<a href="/api/animals/all">Back to Animal List</a>
+
+</body>
+</html>
